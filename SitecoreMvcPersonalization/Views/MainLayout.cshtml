@@ -1,21 +1,42 @@
 ﻿@using Sitecore.Mvc
-@using Sitecore.Mvc.Analytics.Extensions
+@*@using Sitecore.Mvc.Analytics.Extensions*@
 @using Sitecore.Mvc.Presentation
 @model RenderingModel
 @{
-  Layout = null;
+    Layout = null;
 }
 <!DOCTYPE html>
 <html>
 <head>
-  <title>@Html.Sitecore().Field("title", new { DisableWebEdit = true })</title>
-  @Html.Sitecore().VisitorIdentification()
+    <title>@Html.Sitecore().Field("title", new { DisableWebEdit = true })</title>
+    @*@Html.Sitecore().VisitorIdentification()*@
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Assets/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Assets/css/main.css">
+    <link rel="stylesheet" href="~/Assets/lib/font-awesome/css/font-awesome.min.css" />
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic'>
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Raleway:400,300,700'>
+
+    <script src="~/Assets/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/Assets/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/Assets/lib/jquery-validation/dist/additional-methods.min.js"></script>
+    <script type="text/javascript" src="~/Assets/js/smoothscroll.js"></script>
+    <script type="text/javascript" src="~/Assets/js/site.js"></script>
+    <script src="~/Assets/js/Chart.js"></script>
+
 </head>
-  <body>
-    <h1>@Html.Sitecore().Field("title")</h1>
-    <div>
-      @Html.Sitecore().Placeholder("main")
+<body data-spy="scroll" data-offset="0" data-target="#nav">
+    @Html.Sitecore().Placeholder("navigation")
+    @Html.Sitecore().Placeholder("mainBanner")
+    <div class="row" style="min-height: 200px;">
+        <div class="col-sm-4">@Html.Sitecore().Placeholder("left")</div>
+        <div class="col-sm-4">@Html.Sitecore().Placeholder("middle")</div>
+        <div class="col-sm-4">@Html.Sitecore().Placeholder("right")</div>
     </div>
-      <p>lukaszs</p>
-  </body>
+
+    @Html.Sitecore().Placeholder("footer")
+
+    <script src="~/Assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
 </html>
